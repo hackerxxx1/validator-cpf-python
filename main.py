@@ -28,7 +28,7 @@ while (cpf1.upper() != "EXIT"):
     if cpf.isdigit() and len(cpf)==11:
         validat(cpf)
         aux=input("deseja continuar?(sim/nao)")
-        if aux.upper() =="NAO":
+        if aux.upper() =="NAO" or aux.upper() == "EXIT":
         	cpf1="exit"
         	pass
         elif aux.upper() == "SIM":
