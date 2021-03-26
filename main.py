@@ -24,27 +24,28 @@ def validat(value):
 print("para sair digite exit")
 cpf1=input("digite o cpf que deseja consultar:")
 while (cpf1.upper() != "EXIT"):
-	if cpf1.count(".") > 3 or cpf.count("-")> 1:
-		print("syntax error: cpf invalido ou escrito errado")
-        print("tente novamente")
-        cpf1=input("digite o cpf que deseja consultar:")
-		pass
-    cpf=''.join(char for char in cpf1 if char not in "--.")
-    if cpf.isdigit() and len(cpf)==11:
-        validat(cpf)
-        aux=input("deseja continuar?(sim/nao)")
-        if aux.upper() =="NAO" or aux.upper() == "EXIT":
-        	cpf1="exit"
-        	pass
-        elif aux.upper() == "SIM":
-            cpf1=input("digite o cpf que deseja consultar:")
-        else:
-            print("nao foi possivel entender o comando")
-            cpf1="exit"
-    else:
+    if (cpf1.count(".") > 2 or cpf1.count("-")> 1) :
         print("syntax error: cpf invalido ou escrito errado")
         print("tente novamente")
         cpf1=input("digite o cpf que deseja consultar:")
         pass
-    pass    
-	
+    else:    
+        cpf=''.join(char for char in cpf1 if char not in "--.")
+        if cpf.isdigit() and len(cpf)==11:
+            validat(cpf)
+            aux=input("deseja continuar?(sim/nao)")
+            if aux.upper() =="NAO" or aux.upper() == "EXIT":
+        	    cpf1="exit"
+        	    pass
+            elif aux.upper() == "SIM":
+                cpf1=input("digite o cpf que deseja consultar:")
+            else:
+                print("nao foi possivel entender o comando")
+                cpf1="exit"
+        else:
+            print("syntax error: cpf invalido ou escrito errado")
+            print("tente novamente")
+            cpf1=input("digite o cpf que deseja consultar:")
+            pass
+        pass    
+    pass
